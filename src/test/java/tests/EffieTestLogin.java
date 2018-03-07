@@ -57,7 +57,7 @@ public class EffieTestLogin {
 
 
 //        driver.manage().timeouts().implicitlyWait(60,  TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
 
 
         //Find element using ID property
@@ -86,13 +86,60 @@ public class EffieTestLogin {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/btn_p"))).click();
 
+        
+//finger:
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.Button"))).click();
         driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageButton")).click();
-        Thread.sleep(10000);
+        Thread.sleep(2000);
         driver.findElement(By.id("effie.app.com.effie:id/add_point_to_route")).click();
         driver.findElement(By.id("effie.app.com.effie:id/tt_layout_clicker")).click();
         driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageButton"))).click();
+        driver.findElement(By.id("effie.app.com.effie:id/sync_additional_points")).click();
+        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/btn_p"))).click();
+        driver.findElement(By.xpath("//android.widget.TextView[@text = 'г.Днепр,ул. Артема, 21-а']")).click();
+        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+        driver.findElement(By.xpath("//android.widget.CheckedTextView[@text = 'Плановый визит']")).click();
+        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+        driver.findElement(By.xpath("//android.widget.Button[@text = 'Анкета после релиза (отчетность)']")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[@text = 'флагтест']")).click();
+        driver.findElement(By.id("effie.app.com.effie:id/drop_down_answer")).click();
+        driver.findElement(By.xpath("//android.widget.TextView[@text = 'Да']")).click();
+        driver.findElement(By.id("effie.app.com.effie:id/imagePhotoButton")).click();
+        driver.findElement(By.id("MENUID_CAMERA_MODE")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.id("MENUID_SHUTTER")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.sec.android.app.camera:id/okay"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/action_preview_done"))).click();
+        //okButton
+        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+        driver.findElement(By.xpath("//android.widget.Button[@text = 'Завершение этапа']")).click();
+        driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("android:id/button1"))).click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
