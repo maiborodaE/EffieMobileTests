@@ -1,41 +1,6 @@
 package Credentials;
 
-import Credentials.PersAssignCreden;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-import java.net.MalformedURLException;
-import java.net.URL;
-import Credentials.AuthLoginSynchCreden;
-import org.openqa.selenium.By;
-
-public class PersAssignCreden{
-
-
-    public AndroidDriver driver;
-
-    @BeforeTest
-    public void AndroidSetup() throws MalformedURLException {
-        DesiredCapabilities dc = new DesiredCapabilities();
-
-        dc.setCapability("platformVersion", "");
-        dc.setCapability("deviceName", "Android");
-        dc.setCapability("appPackage", "effie.app.com.effie");
-        dc.setCapability("appActivity", "effie.app.com.effie.main.activities.LoginActivity");
-        dc.setCapability("noReset", false);
-        driver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), dc);
-    }
-
-
-    @AfterTest
-    public void tearDown(){
-        driver.quit();
-    }
+public class AuthLoginSynchCreden{
 
 
     // login page
@@ -48,7 +13,6 @@ public class PersAssignCreden{
     // ОК  -  Отмена
     public static String ok =  "effie.app.com.effie:id/btn_p";
     public static String cancel =  "effie.app.com.effie:id/btn_n";
-
 
 
 
@@ -71,18 +35,4 @@ public class PersAssignCreden{
     public static String synch2 =  "android:id/button2";
     // Пропустить
     public static String skip =  "android:id/button1";
-
-//
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-//    public static String  =  "";
-
-
 }
