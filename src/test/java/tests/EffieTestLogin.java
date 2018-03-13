@@ -2,6 +2,7 @@ package tests;
 
 import com.google.common.base.Predicate;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -103,8 +104,17 @@ while (i < 100) {
     driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/btn_p"))).click();
     //Нужно дописать скролл вниз, чтобы потом находить ТТ внизу
+    MobileElement element = driver.findElement(MobileBy.AndroidUIAutomator(
+            "new UiScrollable(new UiSelector().resourceId(\"com.android.vending:id/data_view\")).scrollIntoView("
+                    + "new UiSelector().textContains(\"You\").instance(2))"));
     //Возможно поиск по нумерации:
-    driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout["+i+"]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout")).click();
+    driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+            "android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/" +
+            "android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/" +
+            "android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.widget.LinearLayout/" +
+            "android.support.v7.widget.RecyclerView/android.widget.LinearLayout["+i+"]/android.widget.LinearLayout/" +
+            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout")).click();
+    driver.sc
 
     //    driver.findElement(By.xpath("//android.widget.TextView[@text = 'г.Днепр,ул. Артема, 21-а']")).click();
     driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
