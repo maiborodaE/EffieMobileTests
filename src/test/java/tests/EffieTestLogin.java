@@ -27,23 +27,16 @@ public class EffieTestLogin {
 
 
         //Set the Desired Capabilities
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("deviceName", "My Phone");
-        caps.setCapability("udid", "310072c8b3d92300"); //Give Device ID of your mobile phone
-//        caps.setCapability("udid", "10.8.168.41:4444"); //Give Device wifiAsnova of your mobile phone
-//        caps.setCapability("udid", "192.168.43.40:4444"); //Give Device wifiMezu of your mobile phone
-//        caps.setCapability("udid", "10.0.3.232:4444"); //Give Device wi seleniumcamp of your mobile phone
-
-
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "5.1.1");
-        caps.setCapability("appPackage", "effie.app.com.effie");
-        caps.setCapability("appActivity", "effie.app.com.effie.main.activities.LoginActivity");
-        caps.setCapability("noReset", false);
+        DesiredCapabilities dc = new DesiredCapabilities();
+        dc.setCapability("platformVersion", "");
+        dc.setCapability("deviceName", "Android");
+        dc.setCapability("appPackage", "effie.app.com.effie");
+        dc.setCapability("appActivity", "effie.app.com.effie.main.activities.LoginActivity");
+        dc.setCapability("noReset", false);
 
         //Instantiate Appium Driver
         try {
-            driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
+            driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), dc);
 
         } catch (MalformedURLException e) {
             System.out.println(e.getMessage());
@@ -88,45 +81,45 @@ public class EffieTestLogin {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.widget.ListView/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.Button"))).click();
         driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
 
-        int i = 4;
-
-while (i < 100) {
-//finger:
-
-    driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageButton")).click();
-    Thread.sleep(2000);
-    driver.findElement(By.id("effie.app.com.effie:id/add_point_to_route")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/tt_layout_clicker")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageButton"))).click();
-    driver.findElement(By.id("effie.app.com.effie:id/sync_additional_points")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/btn_p"))).click();
-    //Нужно дописать скролл вниз, чтобы потом находить ТТ внизу
-    //Возможно поиск по нумерации:
-    driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout["+i+"]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout")).click();
-
-    //    driver.findElement(By.xpath("//android.widget.TextView[@text = 'г.Днепр,ул. Артема, 21-а']")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-    driver.findElement(By.xpath("//android.widget.CheckedTextView[@text = 'Плановый визит']")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-    driver.findElement(By.xpath("//android.widget.Button[@text = 'Анкета после релиза (отчетность)']")).click();
-    driver.findElement(By.xpath("//android.widget.TextView[@text = 'флагтест']")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/drop_down_answer")).click();
-    driver.findElement(By.xpath("//android.widget.TextView[@text = 'Да']")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/imagePhotoButton")).click();
-    driver.findElement(By.id("MENUID_CAMERA_MODE")).click();
-    Thread.sleep(2000);
-    driver.findElement(By.id("MENUID_SHUTTER")).click();
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.sec.android.app.camera:id/okay"))).click();
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/action_preview_done"))).click();
-    //okButton
-    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-    driver.findElement(By.xpath("//android.widget.Button[@text = 'Завершение этапа']")).click();
-    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("android:id/button1"))).click();
-    i++;
-}
+//        int i = 4;
+//
+//while (i < 100) {
+////finger:
+//
+//    driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageButton")).click();
+//    Thread.sleep(2000);
+//    driver.findElement(By.id("effie.app.com.effie:id/add_point_to_route")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/tt_layout_clicker")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageButton"))).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/sync_additional_points")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/btn_p"))).click();
+//    //Нужно дописать скролл вниз, чтобы потом находить ТТ внизу
+//    //Возможно поиск по нумерации:
+//    driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.support.v4.widget.DrawerLayout/android.view.View/android.widget.LinearLayout[2]/android.widget.LinearLayout[2]/android.widget.FrameLayout/android.view.View/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout["+i+"]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout")).click();
+//
+//    //    driver.findElement(By.xpath("//android.widget.TextView[@text = 'г.Днепр,ул. Артема, 21-а']")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//    driver.findElement(By.xpath("//android.widget.CheckedTextView[@text = 'Плановый визит']")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//    driver.findElement(By.xpath("//android.widget.Button[@text = 'Анкета после релиза (отчетность)']")).click();
+//    driver.findElement(By.xpath("//android.widget.TextView[@text = 'флагтест']")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/drop_down_answer")).click();
+//    driver.findElement(By.xpath("//android.widget.TextView[@text = 'Да']")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/imagePhotoButton")).click();
+//    driver.findElement(By.id("MENUID_CAMERA_MODE")).click();
+//    Thread.sleep(2000);
+//    driver.findElement(By.id("MENUID_SHUTTER")).click();
+//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.sec.android.app.camera:id/okay"))).click();
+//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("effie.app.com.effie:id/action_preview_done"))).click();
+//    //okButton
+//    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//    driver.findElement(By.xpath("//android.widget.Button[@text = 'Завершение этапа']")).click();
+//    driver.findElement(By.id("effie.app.com.effie:id/btn_p")).click();
+//    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("android:id/button1"))).click();
+//    i++;
+//}
 
     }
 
